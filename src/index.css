@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'OnestLight';
+  src: url('./fonts/OnestLight1602-hint.ttf');
+}
+
+@font-face {
+  font-family: 'OnestBold';
+  src: url('./fonts/OnestBold1602-hint.ttf')
+}
+
+@font-face {
+  font-family: 'OnestExtra';
+  src: url('./fonts/OnestExtraBold1602-hint.ttf')
+}
+
+body {
+  background-color: #100014;
+}

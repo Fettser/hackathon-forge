@@ -1,0 +1,142 @@
+.input {
+    height: 50px;
+    border: none;
+    border-radius: 25px;
+    padding: 0 20px;
+    font-family: 'OnestLight';
+    font-size: 20px;
+    transition: background-color 0.1s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.error {
+    background-color: #f9bdbd;
+}
+
+.input::placeholder {
+    font-family: 'OnestLight';
+    font-size: 20px;
+}
+
+.form-label {
+    position: relative;
+}
+
+.form-label:nth-child(1) {
+    grid-area: a;
+}
+
+.form-label:nth-child(2) {
+    grid-area: b;
+}
+
+.form-label:nth-child(3) {
+    grid-area: c;
+}
+
+.form-label:nth-child(4) {
+    grid-area: d;
+}
+
+.label-title {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 20px;
+    line-height: 20px;
+    font-family: 'OnestBold', Arial, sans-serif;
+    color: #100014;
+    max-width: 500px;
+    margin: 0;
+}
+
+.input::placeholder {
+    opacity: 0
+}
+
+.input:focus::placeholder {
+    opacity: 1
+}
+
+.input:focus + .label-title, .input:not(:placeholder-shown) + .label-title {
+    display: none;
+}
+
+.member-container {
+    background-color: #241428;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.delete-btn {
+    min-width: 24px;
+    height: 24px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    background-image: url('../icons/cross-svgrepo-com.svg');
+}
+
+.inputs {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+    "a a a b b"
+    "c c d d d"
+}
+
+.member-title {
+    font-family: 'OnestLight', Arial, sans-serif;
+    margin: 0;
+    font-weight: 600;
+    font-size: 24px;
+    opacity: 0.9;
+    color: rgba(183,255,78,1);
+    width: max-content;
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 12px;
+}
+
+.member-header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile {
+    display: none;
+}
+
+.desktop {
+    display: block;
+}
+
+@media (max-width: 550px) {
+    .mobile {
+        display: block;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .inputs {
+        display: flex;
+        flex-direction: column;
+    }
+}
