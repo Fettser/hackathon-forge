@@ -54,8 +54,8 @@ export const Member = forwardRef<TRef, IMember>(({onDelete, index, id}, ref) => 
 
             validate() {
                 const regexs: {[key in keyof MemberData]: RegExp} = {
-                    fio: /^[а-яА-ЯЁё\-\s]{3,50}$/,
-                    program: /^[a-zA-Zа-яА-ЯЁё\d\s\-]{2,50}$/,
+                    fio: /^[а-яА-ЯЁё\-\s]{3,70}$/,
+                    program: /^[a-zA-Zа-яА-ЯЁё\d\s\-]{2,70}$/,
                     email: /^[a-zA-Z0-9]*@edu\.hse\.ru$/,
                     tg: /^@[a-zA-Z0-9]*$/
                 }
@@ -83,7 +83,7 @@ export const Member = forwardRef<TRef, IMember>(({onDelete, index, id}, ref) => 
             <div className="member-info">
                 <div className="member-header">
                     <h1 className="member-title">Участник №{index + 1}</h1>
-                    <button className="delete-btn mobile" type="button" onClick={() => onDelete(id)}></button>
+                    <button className="delete-btn" type="button" onClick={() => onDelete(id)}></button>
                 </div>
                 <div className="inputs">
                     <div className="form-label">
@@ -91,20 +91,19 @@ export const Member = forwardRef<TRef, IMember>(({onDelete, index, id}, ref) => 
                         <p className="label-title">ФИО</p>
                     </div>
                     <div className="form-label">
-                    <input className="input" placeholder="ИВТ" name='program' ref={ref => setRef('program', ref)} onFocus={onFocus}/>
+                        <input className="input" placeholder="ИВТ" name='program' ref={ref => setRef('program', ref)} onFocus={onFocus}/>
                         <p className="label-title">ОП</p>
                     </div>
                     <div className="form-label">
-                    <input className="input" placeholder="В формате @iiivanov" name='tg' ref={ref => setRef('tg', ref)} onFocus={onFocus}/>
-                        <p className="label-title">Telegram</p>
+                        <input className="input" placeholder="iiivanov@edu.hse.ru" name='email' ref={ref => setRef('email', ref)} onFocus={onFocus}/>
+                        <p className="label-title">Почта edu.hse</p>
                     </div>
                     <div className="form-label">
-                    <input className="input" placeholder="iiivanov@edu.hse.ru" name='email' ref={ref => setRef('email', ref)} onFocus={onFocus}/>
-                        <p className="label-title">Почта edu.hse</p>
+                        <input className="input" placeholder="В формате @iiivanov" name='tg' ref={ref => setRef('tg', ref)} onFocus={onFocus}/>
+                        <p className="label-title">Telegram</p>
                     </div>
                 </div>
             </div>
-            <button className="delete-btn desktop" type="button" onClick={() => onDelete(id)}></button>
         </div>
     )
 })

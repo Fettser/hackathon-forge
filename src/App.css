@@ -19,7 +19,7 @@
   border: none;
   border-radius: 25px;
   padding: 0 20px;
-  font-family: 'OnestLight';
+  font-family: 'OnestLight', Arial, sans-serif;
   font-size: 20px;
   transition: background-color 0.1s;
   width: 100%;
@@ -28,20 +28,41 @@
 
 .actions {
   display: flex;
-  gap: 10px;
   margin-left: 20px;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .add-member-btn, .send-btn {
-  border: none;
   border-radius: 25px;
   height: 50px;
   padding: 0 20px;
   font-family: 'OnestBold', Arial, sans-serif;
   font-size: 16px;
+  width: max-content;
+}
+
+.send-btn {
+  border: none;
   color: #100014;
   transition: background-color 0.2s;
+}
+
+.add-member-btn {
+  background-color: transparent;
+  border: 2px solid;
+  border-color: white;
+  color: white;
+  transition: all 0.2s;
+}
+
+.add-member-btn:hover {
+  color: rgba(183,255,78,1);
+  border-color: rgba(183,255,78,1);
+}
+
+.send-btn:hover {
+  background-color: rgba(183,255,78,1);
 }
 
 .add-member-btn:disabled, .send-btn:disabled {
@@ -64,13 +85,25 @@
   margin: 0 20px 20px 20px;
 }
 
+.policy {
+  font-size: 12px;
+  font-family: 'OnestLight', Arial, sans-serif;
+  color: #b5b5b5;
+  margin: 0;
+  width: 480px;
+}
+
+.policy a {
+  color: rgba(183,255,78,1);
+  text-decoration: none;
+}
+
 @media (max-width: 550px) {
   .form-title {
     font-size: 32px;
   }
 
   .actions {
-    justify-content: space-between;
     padding-right: 20px;
   }
 }

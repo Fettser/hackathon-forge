@@ -45,10 +45,11 @@
     left: 20px;
     font-size: 20px;
     line-height: 20px;
-    font-family: 'OnestBold', Arial, sans-serif;
+    font-family: 'OnestLight', Arial, sans-serif;
     color: #100014;
     max-width: 500px;
     margin: 0;
+    pointer-events: none;
 }
 
 .input::placeholder {
@@ -91,7 +92,7 @@
     grid-template-rows: repeat(2, 1fr);
     grid-template-areas:
     "a a a b b"
-    "c c d d d"
+    "c c c d d"
 }
 
 .member-title {
@@ -118,23 +119,7 @@
     justify-content: space-between;
 }
 
-.mobile {
-    display: none;
-}
-
-.desktop {
-    display: block;
-}
-
 @media (max-width: 550px) {
-    .mobile {
-        display: block;
-    }
-
-    .desktop {
-        display: none;
-    }
-
     .inputs {
         display: flex;
         flex-direction: column;

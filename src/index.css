@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 @font-face {
   font-family: 'OnestLight';
   src: url('./fonts/OnestLight1602-hint.ttf');

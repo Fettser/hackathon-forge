@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useRef, useState, FocusEvent } from 'react';
+import React, { ChangeEvent, FormEvent, useRef, useState, FocusEvent, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import '../src/components/Member.css'
@@ -13,9 +13,9 @@ const getStatusText = (status?: string) => {
     case 'success':
       return 'Отправлено!'
     case 'pending':
-      return 'Отправляю'
+      return 'Отправляем...'
     case 'error':
-      return 'Ошибка'
+      return 'Ошибка!'
     default:
       return 'Отправить'
   }
@@ -26,6 +26,28 @@ function App() {
   const [ids, setIds] = useState([generateId(), generateId()]);
   const [status, setStatus] = useState('')
   const teamRef = useRef<HTMLInputElement | null>(null)
+
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver(entries => {
+      const isIframe = () => {
+        try {
+          return window.self !== window.top
+        } catch (e) {
+          return true
+        }
+      }
+
+      if (isIframe()) {
+        window.parent.postMessage({height: entries[0].target.clientHeight}, 'https://technoforge-rpa.ru')
+      }
+    })
+
+    resizeObserver.observe(document.body)
+
+    return () => {
+      resizeObserver.unobserve(document.body)
+    }
+  }, [])
   
   const setRef = (id: string, ref: TRef | null) => {
     if (!refs.current[id]) {
@@ -124,8 +146,9 @@ function App() {
             />)
         })}
         <div className='actions'>
-          <button className='add-member-btn' type='button' disabled={ids.length > 3} onClick={addMember}>Добавить участника</button>
           <button className={`send-btn ${status}`} disabled={status === 'success' || status === 'loading'} type='submit'>{getStatusText(status)}</button>
+          <button className='add-member-btn' type='button' disabled={ids.length > 3} onClick={addMember}>Добавить участника</button>
+          <p className='policy'>При отправке формы вы подтверждаете, что ознакомлены с <a target='blank' href='http://technoforge-rpa.ru/privacy'>Положением о проведении Хакатона</a>, а также даете <a target='blank' href='http://technoforge-rpa.ru/privacy'>согласие на обработку персональных данных</a></p>
         </div>
       </form>
     </>

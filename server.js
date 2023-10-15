@@ -48,7 +48,7 @@ app.post('/form', async (req, res) => {
                 resource: {
                     values: [[fio, program, email, tg]],
                 }
-            })  
+            })
         }
 
         res.sendStatus(200)
