@@ -56,8 +56,8 @@ export const Member = forwardRef<TRef, IMember>(({onDelete, index, id}, ref) => 
                 const regexs: {[key in keyof MemberData]: RegExp} = {
                     fio: /^[а-яА-ЯЁё\-\s]{3,70}$/,
                     program: /^[a-zA-Zа-яА-ЯЁё\d\s\-]{2,70}$/,
-                    email: /^[a-zA-Z0-9]*@edu\.hse\.ru$/,
-                    tg: /^@[a-zA-Z0-9]*$/
+                    email: /^[a-zA-Z0-9_-]*@edu\.hse\.ru$/,
+                    tg: /^@[a-zA-Z0-9_-]*$/
                 }
 
                 let valid = true
