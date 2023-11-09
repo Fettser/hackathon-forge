@@ -148,7 +148,6 @@ function App() {
         <div className='actions'>
           <button className={`send-btn ${status}`} disabled={status === 'success' || status === 'loading'} type='submit'>{getStatusText(status)}</button>
           <button className='add-member-btn' type='button' disabled={ids.length > 3} onClick={addMember}>Добавить участника</button>
-          <p className='policy'>При отправке формы вы подтверждаете, что ознакомлены с <a target='blank' href='http://technoforge-rpa.ru/privacy'>Положением о проведении Хакатона</a>, а также даете <a target='blank' href='http://technoforge-rpa.ru/privacy'>согласие на обработку персональных данных</a></p>
         </div>
       </form>
     </>
